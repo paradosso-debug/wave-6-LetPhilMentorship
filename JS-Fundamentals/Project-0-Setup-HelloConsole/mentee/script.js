@@ -1,5 +1,5 @@
 /*
-Project 01 — Setup & Hello Console
+Project 0 — Setup & Hello Console
 
 
 
@@ -9,3 +9,7 @@ STEP 1 — Logging
 STEP 2 — Extra
   Create a second console message that reads: Console is working.
 */
+
+console.log("Hello, Javascript!");
+console.log("Console is working");
+console.log("random message");

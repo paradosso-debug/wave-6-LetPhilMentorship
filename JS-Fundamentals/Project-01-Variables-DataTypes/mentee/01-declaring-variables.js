@@ -6,3 +6,13 @@
 // EX3: Create two variables firstName, lastName and log them in one line.
 // EX4: Create `const country = "Mexico"` and explain why const fits here in a comment.
 // EX5: Create `let cartCount = 0`, then change it to a new number and log both values.
+
+let userName = "Riley";
+console.log(userName);
+
+const yearCreated = 2018;
+console.log(yearCreated);
+
+first_name = "john";
+last_name = "smith";
+console.log("Hello", first_name + " " + last_name);
