@@ -10,3 +10,11 @@
 // EX3: Compare true == 1 and true === 1.
 // EX4: Explain why === is safer in real apps.
 // EX5: Use Number("5") === 5 and log result.
+
+console.log(5 == "5");
+console.log(5 === "5");
+
+console.log(true == 1);
+console.log(true === 1);
+
+console.log(Number("5") === 5);

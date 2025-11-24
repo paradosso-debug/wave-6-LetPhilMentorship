@@ -10,3 +10,18 @@
 // EX3: Else if >= 70 → C.
 // EX4: Else if >= 60 → D.
 // EX5: Else → F. Log the final grade.
+
+let score = 90;
+let result = "";
+if (score >= 90) {
+  console.log("A");
+} else if (score >= 80) {
+  console.log("B");
+} else if (score >= 70) {
+  console.log("C");
+} else if (score >= 60) {
+  console.log("D");
+} else {
+  console.log("F");
+}
+console.log(result);

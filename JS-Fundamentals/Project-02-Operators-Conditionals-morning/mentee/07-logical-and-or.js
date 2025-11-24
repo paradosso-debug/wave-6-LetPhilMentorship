@@ -10,3 +10,28 @@
 // EX3: isLoggedIn && hasSubscription → canWatch.
 // EX4: isAdmin || isEditor → canEdit.
 // EX5: !isBanned && isMember → canJoin.
+
+let hasTicket = true;
+let isVIP = true;
+
+console.log(hasTicket && isVIP);
+
+let canEnterEvent = hasTicket || isVIP;
+console.log(canEnterEvent);
+
+console.log(hasTicket || isVIP);
+
+let isLoggedIn = true;
+let hasSubscription = false;
+console.log(isLoggedIn && hasSubscription);
+
+let canWatch = isLoggedIn && hasSubscription;
+console.log(canWatch);
+
+let isAdmin = true;
+let isEditor = false;
+console.log(isAdmin || isEditor);
+
+let isBanned = false;
+let isMember = true;
+console.log(!isBanned && isMember);
