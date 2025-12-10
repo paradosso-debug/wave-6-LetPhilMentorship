@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project-05 — Study Session Planner</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- 
+      🧠 PROJECT GOAL (HTML SIDE)
+
+      In this mentee version, you will NOT see the final HTML structure.
+      Instead, you will follow these step-by-step instructions (comments)
+      to build the page yourself.
+
+      The idea: create a small interface where a user can enter:
+        - A subject to study
+        - How many minutes they have
+        - How difficult the subject feels
+        - A button to "Build My Study Plan"
+        - An area where the plan text will appear
+    -->
+
+    <!-- 
+      STEP 1 — Create a main container
+
+      1. Add a <main> element.
+      2. Give it a class name of "app".
+      3. This will be the main card/container of your small app.
+
+      Example of what the opening tag will look like (DO NOT paste, type it yourself later):
+        <main class="app">
+    -->
+
+    <!-- 
+      STEP 2 — Inside <main>, create a heading section
+
+      Inside your <main>:
+      1. Add an <h1> element for the title.
+         - Text: 📚 Study Session Planner
+      2. Add a <p> element for a short subtitle.
+         - Give it a class of "subtitle".
+         - Text can be: 
+           "Use JavaScript functions to build a focused study plan based on your time and difficulty."
+
+      This will give users context about what the app does.
+    -->
+
+    <!-- 
+      STEP 3 — Create the first section for the form (inputs)
+
+      1. Add a <section> element under the heading inside <main>.
+      2. Give it a class of "card".
+      3. This section will hold:
+         - Subject input
+         - Minutes input
+         - Difficulty select
+         - Button
+
+      Think of this as the "form card" of your app.
+    -->
+
+    <!-- 
+      STEP 4 — Inside the form section: Subject input
+
+      Inside your <section class="card">:
+
+      1. Add a <label> element with class "field".
+      2. Inside that label:
+         - Add a <span> element with the text: Subject
+         - Add an <input> element:
+           • type="text"
+           • id="subjectInput"
+           • placeholder="e.g. JavaScript, Math, English"
+
+      This input will later be used in JavaScript with:
+        document.getElementById("subjectInput")
+    -->
+
+    <!-- 
+      STEP 5 — Minutes input
+
+      Still inside the same <section class="card">:
+
+      1. Add another <label> with class "field".
+      2. Inside it:
+         - Add a <span> with the text: Minutes available
+         - Add an <input> element:
+           • type="number"
+           • id="minutesInput"
+           • placeholder="e.g. 45"
+           • min="10"
+
+      JavaScript will later read this value and convert it to a Number.
+    -->
+
+    <!-- 
+      STEP 6 — Difficulty select (dropdown)
+
+      1. Add one more <label> with class "field".
+      2. Inside:
+         - Add a <span> with the text: Difficulty
+         - Add a <select> element with:
+           • id="difficultySelect"
+
+      3. Inside the <select>, add 3 <option> elements:
+           - value="easy"   → text: Easy 😌
+           - value="medium" → text: Medium 😬
+           - value="hard"   → text: Hard 😵‍💫
+
+      In JavaScript, you will later use:
+        difficultySelect.value
+      to know which difficulty the user picked.
+    -->
+
+    <!-- 
+      STEP 7 — Button to build the plan
+
+      Still inside the <section class="card">:
+
+      1. Add a <button> element.
+      2. Give it an id of "buildPlanBtn".
+      3. Text inside the button: Build My Study Plan
+
+      In JavaScript, we will use:
+        document.getElementById("buildPlanBtn")
+      and attach a "click" event listener so that when the user clicks this,
+      your functions will run.
+    -->
+
+    <!-- 
+      STEP 8 — Output section for the plan
+
+      Below the card section (but still inside <main>):
+
+      1. Add another <section> element.
+      2. Give it a class of "output-card".
+      3. Inside it:
+         - Add an <h2> with the text: 📝 Your Study Plan
+         - Add a <pre> element:
+           • id="planOutput"
+           • Initial text content can be:
+             "Fill in the form and click the button to see your plan."
+
+      Note: <pre> preserves line breaks, which is great for multi-line text.
+      In JavaScript, we will later do:
+        planOutput.textContent = "some multi-line text";
+    -->
+
+    <!-- 
+      STEP 9 — Close your main container and body
+
+      1. Make sure you close:
+         - </main>
+         - </body>
+         - </html>
+    -->
+
+    <!-- 
+      STEP 10 — Connect the JavaScript file
+
+      Before closing </body>, add a <script> tag that loads script.js:
+        <script src="script.js"></script>
+
+      This is how your HTML "talks to" your JavaScript logic.
+    -->
+  </body>
+</html>
