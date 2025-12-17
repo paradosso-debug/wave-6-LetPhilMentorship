@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project-06 — Focus Task Board (MENTEE)</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- 
+      🧠 PROJECT GOAL (HTML SIDE)
+
+      In this mentee version, you will build the page structure yourself
+      by following the instructions in these comments.
+
+      The idea: create a "Focus Task Board" that has:
+        - A section to add a new task (title, difficulty, minutes).
+        - Buttons to filter tasks (All, Active, Completed).
+        - A section that shows:
+          • Task stats (total, completed, remaining).
+          • A list of tasks.
+    -->
+
+    <!-- 
+      STEP 1 — Create the main container
+
+      1. Add a <main> element.
+      2. Give it a class of "app".
+
+      This will be the main card/container of your app.
+    -->
+
+    <!-- 
+      STEP 2 — Add a title and subtitle inside <main>
+
+      Inside your <main class="app">:
+
+      1. Add an <h1> element for the page title.
+         - Suggested text: 🎯 Focus Task Board
+
+      2. Add a <p> element for the subtitle.
+         - Give it class "subtitle".
+         - Suggested text:
+           "Practice DOM selection and events while managing a list of focus tasks."
+    -->
+
+    <!-- 
+      STEP 3 — Create a layout section
+
+      Still inside <main>:
+
+      1. Add a <section> element.
+      2. Give it a class of "layout".
+
+      This layout section will hold:
+        - On the left: the form and filter controls.
+        - On the right: the stats and the task list.
+    -->
+
+    <!-- 
+      STEP 4 — Left card: form and filters
+
+      Inside <section class="layout">:
+
+      1. Add a <section> element for the left side.
+      2. Give it a class of "card".
+
+      Inside this left card:
+
+      a) Add an <h2> for the form title.
+         - Text: "Add a Task"
+
+      b) Add a group of fields for:
+         - Task title
+         - Difficulty
+         - Estimated minutes
+    -->
+
+    <!-- 
+      STEP 5 — Task title input
+
+      Inside the left card:
+
+      1. Add a <div> with class "field".
+      2. Inside it:
+         - Add a <span> with text "Task title".
+         - Add an <input> element with:
+           • type="text"
+           • id="taskTitleInput"
+           • placeholder="e.g. Review functions, Solve 3 math problems"
+    -->
+
+    <!-- 
+      STEP 6 — Difficulty select
+
+      1. Add another <div> with class "field".
+      2. Inside it:
+         - Add a <span> with text "Difficulty".
+         - Add a <select> with id="difficultySelect".
+         - Inside the <select> add three <option> elements:
+           • value="easy"   → text: Easy 😌
+           • value="medium" → text: Medium 😬
+           • value="hard"   → text: Hard 😵‍💫
+    -->
+
+    <!-- 
+      STEP 7 — Estimated minutes input
+
+      1. Add another <div> with class "field".
+      2. Inside it:
+         - Add a <span> with text "Estimated minutes".
+         - Add an <input> element with:
+           • type="number"
+           • id="minutesInput"
+           • placeholder="e.g. 25"
+           • min="5"
+    -->
+
+    <!-- 
+      STEP 8 — Buttons row (Add Task + Clear Completed)
+
+      1. Add a <div> with class "button-row".
+      2. Inside it:
+         - Add a <button> with:
+           • id="addTaskBtn"
+           • Text: "Add Task"
+         - Add another <button> with:
+           • id="clearCompletedBtn"
+           • class="button-secondary"
+           • Text: "Clear Completed"
+    -->
+
+    <!-- 
+      STEP 9 — Filter section
+
+      Still inside the same left card:
+
+      1. Add an <h2> with text "Filter".
+      2. Add another <div> with class "button-row".
+      3. Inside this row, add three <button> elements:
+
+         a) Button 1:
+            - class="button-secondary active"
+            - id="filterAllBtn"
+            - data-filter="all"
+            - Text: "All"
+
+         b) Button 2:
+            - class="button-secondary"
+            - id="filterActiveBtn"
+            - data-filter="active"
+            - Text: "Active"
+
+         c) Button 3:
+            - class="button-secondary"
+            - id="filterCompletedBtn"
+            - data-filter="completed"
+            - Text: "Completed"
+
+      JavaScript will later use:
+        • the ids to find these elements
+        • the "active" class to highlight the current filter
+    -->
+
+    <!-- 
+      STEP 10 — Right card: stats + task list
+
+      Inside <section class="layout"> (still):
+
+      1. Add another <section> for the right side.
+      2. Give it class "card".
+
+      Inside this right card:
+
+      a) Add an <h2> with text: "Today’s Tasks"
+
+      b) Add a <div> for the stats row:
+         - Give it:
+           • id="statsRow"
+           • class="stats-row"
+
+         Inside it, add three <span> elements (chips):
+           - Total:
+             • class="stat-chip"
+             • id="totalTasksChip"
+             • Text: "Total: 0"
+           - Completed:
+             • class="stat-chip"
+             • id="completedTasksChip"
+             • Text: "Completed: 0"
+           - Remaining:
+             • class="stat-chip"
+             • id="remainingTasksChip"
+             • Text: "Remaining: 0"
+    -->
+
+    <!-- 
+      STEP 11 — Task list
+
+      Still inside the right card:
+
+      1. Add a <ul> element with:
+         • id="taskList"
+         • class="task-list"
+
+      2. Inside this <ul>, add one <li> element for the initial empty state:
+         - Give it:
+           • class="empty-state"
+           • id="emptyState"
+         - Text:
+           "No tasks yet. Add your first focus task on the left ✨"
+
+      Later, JavaScript will:
+        - Remove this empty state when there are real tasks.
+        - Dynamically create <li> elements for each task.
+    -->
+
+    <!-- 
+      STEP 12 — Connect the JavaScript file
+
+      Before closing </body>, add:
+
+        <script src="script.js"></script>
+
+      This will link your HTML to the JavaScript file where you
+      will write all the logic for handling tasks, filters, and stats.
+    -->
+  </body>
+</html>
