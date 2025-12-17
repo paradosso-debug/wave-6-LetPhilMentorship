@@ -7,10 +7,6 @@
 // - arrays, objects, functions
 // - DOM + click events
 
-// IMPORTANT:
-// This file contains only INSTRUCTIONS as comments.
-// Your job is to turn these steps into real JavaScript code.
-
 // 🧠 STEP 1 — SELECT DOM ELEMENTS
 // 1. Create variables using const for each key HTML element:
 //    - taskTitleInput       → the text input for the task title
