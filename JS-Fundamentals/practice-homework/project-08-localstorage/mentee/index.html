@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project-01-LocalStorage — Bookmark Dock</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- 
+    
+      STEP 1 — Main container
+
+      1. Add a <main> element.
+      2. Give it class="app".
+
+      All content for this mini app will live inside this <main>.
+    -->
+
+    <!-- 
+      STEP 2 — Title and subtitle
+
+      Inside <main class="app">:
+
+      1. Add an <h1> with text like:
+         "🔖 Bookmark Dock"
+
+      2. Add a <p> with:
+         - class="subtitle"
+         - Suggested text:
+           "Save your favorite learning links in localStorage and practice working with arrays, functions, DOM events, and array methods."
+    -->
+
+    <!-- 
+      STEP 3 — Layout wrapper
+
+      Inside <main>:
+
+      1. Add a <section> element.
+      2. Give it class="layout".
+
+      This layout will have two children:
+        - LEFT card → form + filters.
+        - RIGHT card → stats + list.
+    -->
+
+    <!-- 
+      STEP 4 — Left card (form + filters)
+
+      Inside <section class="layout">:
+
+      1. Add a <section> for the LEFT column.
+      2. Give it class="card".
+
+      Inside this LEFT card:
+
+      a) Add an <h2> with text: "Add / Edit Bookmark"
+    -->
+
+    <!-- 
+      STEP 5 — Title input
+
+      Inside the LEFT card:
+
+      1. Add a <div> with class="field".
+      2. Inside it:
+         - Add a <span> with text "Title".
+         - Add an <input> with:
+           • type="text"
+           • id="titleInput"
+           • placeholder="e.g. MDN Array Methods, Flexbox Froggy..."
+    -->
+
+    <!-- 
+      STEP 6 — URL input
+
+      1. Add another <div> with class="field".
+      2. Inside it:
+         - Add a <span> with text "URL".
+         - Add an <input> with:
+           • type="url"
+           • id="urlInput"
+           • placeholder="https://developer.mozilla.org/..."
+    -->
+
+    <!-- 
+      STEP 7 — Category select
+
+      1. Add another <div> with class="field".
+      2. Inside it:
+         - Add a <span> with text "Category".
+         - Add a <select> with id="categorySelect".
+         - Inside the select, add options:
+
+           • value="javascript" → "JavaScript"
+           • value="html"       → "HTML"
+           • value="css"        → "CSS"
+           • value="tools"      → "Tools"
+           • value="fun"        → "Fun"
+    -->
+
+    <!-- 
+      STEP 8 — Rating input
+
+      1. Add another <div> with class="field".
+      2. Inside it:
+         - Add a <span> with text "Rating (1–5)".
+         - Add an <input> with:
+           • type="number"
+           • id="ratingInput"
+           • min="1"
+           • max="5"
+           • placeholder="e.g. 5"
+    -->
+
+    <!-- 
+      STEP 9 — Form buttons
+
+      1. Add a <div> with class="button-row".
+      2. Inside it:
+
+         a) Add a main button:
+            - <button>
+            - id="saveBookmarkBtn"
+            - Text: "Save Bookmark"
+
+         b) Add a smaller pill-style button:
+            - <button>
+            - type="button"
+            - id="clearFormBtn"
+            - class="button-pill"
+            - Text: "Clear Form"
+    -->
+
+    <!-- 
+      STEP 10 — Filters & View title
+
+      Still inside the LEFT card:
+
+      1. Add an <h2> with text: "Filters & View"
+    -->
+
+    <!-- 
+      STEP 11 — Search field
+
+      1. Add a <div> with class="field".
+      2. Inside it:
+         - <span> with text "Search"
+         - <input> with:
+           • type="text"
+           • id="searchInput"
+           • placeholder="Filter by title or URL..."
+    -->
+
+    <!-- 
+      STEP 12 — Category filter select
+
+      1. Add another <div> with class="field".
+      2. Inside it:
+         - <span> with text "Category"
+         - <select> with id="categoryFilterSelect"
+           containing:
+
+           • <option value="all">All categories</option>
+           • <option value="javascript">JavaScript</option>
+           • <option value="html">HTML</option>
+           • <option value="css">CSS</option>
+           • <option value="tools">Tools</option>
+           • <option value="fun">Fun</option>
+    -->
+
+    <!-- 
+      STEP 13 — View buttons (All / Favourites)
+
+      1. Add a <div> with class="button-row".
+      2. Inside it, add two <button> elements:
+
+         a) All button:
+            - type="button"
+            - id="showAllBtn"
+            - class="button-pill active"
+            - Text: "All"
+
+         b) Favourites button:
+            - type="button"
+            - id="showFavoritesBtn"
+            - class="button-pill"
+            - Text: "Favourites"
+    -->
+
+    <!-- 
+      STEP 14 — Sort buttons
+
+      1. Add another <div> with class="button-row".
+      2. Inside it, add three <button> elements:
+
+         a) Default order:
+            - type="button"
+            - id="sortDefaultBtn"
+            - class="button-pill active"
+            - Text: "Default order"
+
+         b) Sort by title:
+            - type="button"
+            - id="sortByTitleBtn"
+            - class="button-pill"
+            - Text: "Sort by title"
+
+         c) Sort by rating:
+            - type="button"
+            - id="sortByRatingBtn"
+            - class="button-pill"
+            - Text: "Sort by rating"
+    -->
+
+    <!-- 
+      STEP 15 — Clear all button
+
+      1. Add another <div> with class="button-row".
+      2. Inside it, add a <button> with:
+
+         - type="button"
+         - id="clearAllBtn"
+         - class="button-pill danger"
+         - Text: "Clear All Bookmarks"
+    -->
+
+    <!-- 
+      STEP 16 — Right card (stats + list)
+
+      Back inside <section class="layout">:
+
+      1. Add another <section> for the RIGHT column.
+      2. Give it class="card".
+
+      Inside this RIGHT card:
+
+      a) Add an <h2> with text: "Saved Bookmarks"
+    -->
+
+    <!-- 
+      STEP 17 — Stats row 1
+
+      Inside the RIGHT card:
+
+      1. Add a <div> with class="stats-row".
+      2. Inside it, add two <span> elements with class="stat-chip":
+
+         - Total:
+           • id="totalBookmarksChip"
+           • Text: "Total: 0"
+
+         - Favorites:
+           • id="favoriteBookmarksChip"
+           • Text: "Favorites: 0"
+    -->
+
+    <!-- 
+      STEP 18 — Stats row 2 (categories)
+
+      1. Add another <div> with class="stats-row".
+      2. Inside it, add one <span> with:
+
+         - class="stat-chip"
+         - id="categorySummaryChip"
+         - Text:
+           "Categories: JS 0 • HTML 0 • CSS 0 • Tools 0 • Fun 0"
+    -->
+
+    <!-- 
+      STEP 19 — Bookmark list
+
+      1. Add a <ul> with:
+         - id="bookmarkList"
+         - class="bookmark-list"
+
+      2. Inside this <ul>, add a single <li> for the empty state:
+         - class="empty-state"
+         - id="emptyState"
+         - Text:
+           "No bookmarks yet. Add your first learning link on the left ✨"
+
+      Later, JavaScript will:
+        - Replace this message with <li> items for each bookmark.
+    -->
+
+    <!-- 
+      STEP 20 — Connect JavaScript
+
+    -->
+  </body>
+</html>

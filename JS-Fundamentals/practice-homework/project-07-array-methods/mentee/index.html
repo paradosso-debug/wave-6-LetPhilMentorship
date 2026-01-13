@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project-Array-Methods — Budget Flow</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+   <!-- 
+  💸 PROJECT: Budget Flow 
+
+  You are building a modern expense tracker where:
+  - The user saves a starting budget (income number)
+  - The user adds expenses (description, amount, category)
+  - The overview shows totals (Income, Expenses, Balance)
+  - The list updates using array methods
+-->
+
+<!-- STEP 1 — Create the main app container -->
+<!-- Add a <main> element -->
+<!-- class="app" -->
+
+<!-- STEP 2 — Build the top header area -->
+<!-- Inside <main class="app"> add a <div class="top"> -->
+<!-- Inside .top add: -->
+<!-- 1) A <div> that contains: -->
+<!--    - <h1> with text: "💸 Budget Flow" -->
+<!--    - <p class="subtitle"> describing what the app does -->
+<!-- 2) A <span class="pill"> with text: "Live totals" -->
+
+<!-- STEP 3 — Create the main layout -->
+<!-- Under the header, add a <section> -->
+<!-- class="layout" -->
+<!-- This layout will have TWO cards: LEFT and RIGHT -->
+
+<!-- STEP 4 — LEFT card: Budget + Expenses -->
+<!-- Inside .layout, add a <section class="card"> (LEFT card) -->
+<!-- Add an <h2> with text: "Budget + Expenses" -->
+
+<!-- STEP 5 — Add the starting budget input -->
+<!-- Inside LEFT card, add a <div class="field"> -->
+<!-- Inside it add: -->
+<!-- - <span class="label"> text: "Starting budget (Income)" -->
+<!-- - <input> with: -->
+<!--   id="startingBudgetInput" -->
+<!--   type="number" -->
+<!--   min="0" -->
+<!--   step="0.01" -->
+<!--   placeholder="e.g. 1500" -->
+
+<!-- STEP 6 — Add the "Save budget" button -->
+<!-- Under the input, add a <div class="button-row"> -->
+<!-- Add a <button> with: -->
+<!-- id="saveBudgetBtn" -->
+<!-- class="button-secondary" -->
+<!-- text: "Save budget" -->
+
+<!-- STEP 7 — Add a divider line -->
+<!-- Add <div class="hr"></div> -->
+
+<!-- STEP 8 — Add the "Add Expense" section -->
+<!-- Add an <h2> with text: "Add Expense" -->
+
+<!-- STEP 9 — Add expense description input -->
+<!-- Add a <div class="field"> -->
+<!-- - <span class="label"> "Description" -->
+<!-- - <input> with: -->
+<!--   id="textInput" -->
+<!--   type="text" -->
+<!--   placeholder="Description..." -->
+
+<!-- STEP 10 — Add expense amount input -->
+<!-- Add a <div class="field"> -->
+<!-- - <span class="label"> "Amount" -->
+<!-- - <input> with: -->
+<!--   id="amountInput" -->
+<!--   type="number" -->
+<!--   min="0" -->
+<!--   step="0.01" -->
+<!--   placeholder="Amount..." -->
+
+<!-- STEP 11 — Add category select -->
+<!-- Add a <div class="field"> -->
+<!-- - <span class="label"> "Category" -->
+<!-- - <select id="categorySelect"> with options: -->
+<!--   bills, food, transport, shopping, other -->
+
+<!-- STEP 12 — Add "Add expense" button -->
+<!-- Add a <div class="button-row"> -->
+<!-- Add a <button id="addBtn"> with text: "Add expense" -->
+
+<!-- STEP 13 — Add another divider line -->
+<!-- Add <div class="hr"></div> -->
+
+<!-- STEP 14 — Add the Controls section -->
+<!-- Add <h2> with text: "Controls" -->
+
+<!-- STEP 15 — Add search input -->
+<!-- Add a <div class="field"> -->
+<!-- - <span class="label"> "Search" -->
+<!-- - <input> with: -->
+<!--   id="searchInput" -->
+<!--   type="text" -->
+<!--   placeholder="search description..." -->
+
+<!-- STEP 16 — Add category filter -->
+<!-- Add a <div class="field"> -->
+<!-- - <span class="label"> "Category filter" -->
+<!-- - <select id="categoryFilterSelect"> with options: -->
+<!--   all, bills, food, transport, shopping, other -->
+
+<!-- STEP 17 — Add sort buttons -->
+<!-- Add <h2> with text: "Sort" -->
+<!-- Add <div class="button-row"> with 2 buttons: -->
+<!-- 1) <button id="sortNewestBtn" class="button-secondary active">Newest</button> -->
+<!-- 2) <button id="sortAmountBtn" class="button-secondary">Amount</button> -->
+
+<!-- STEP 18 — RIGHT card: Overview + List -->
+<!-- Still inside .layout, add another <section class="card"> (RIGHT card) -->
+<!-- Add <h2> with text: "Overview" -->
+
+<!-- STEP 19 — Add Overview chips row 1 -->
+<!-- Add <div class="stats-row"> -->
+<!-- Inside it add 3 <span class="stat-chip"> elements: -->
+<!-- - id="incomeChip" text "Income: 0" -->
+<!-- - id="expenseChip" text "Expenses: 0" -->
+<!-- - id="balanceChip" text "Balance: 0" -->
+
+<!-- STEP 20 — Add Overview chips row 2 -->
+<!-- Add another <div class="stats-row"> -->
+<!-- Inside it add 2 chips: -->
+<!-- - id="categorySummaryChip" text "Categories: —" -->
+<!-- - id="insightsChip" text "Insights: —" -->
+
+<!-- STEP 21 — Add the expense list container -->
+<!-- Add a <ul> with: -->
+<!-- id="txList" -->
+<!-- class="list" -->
+
+<!-- STEP 22 — Add the empty state message -->
+<!-- Inside the <ul>, add one <li> with: -->
+<!-- class="empty-state" -->
+<!-- id="emptyState" -->
+<!-- text: "No expenses yet. Set a budget and add expenses on the left ✨" -->
+
+<!-- STEP 23 — Connect JavaScript -->
+
+
+  
+  </body>
+</html>
