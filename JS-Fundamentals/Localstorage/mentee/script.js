@@ -30,16 +30,35 @@
 //
 //    - noteList            (id="noteList")
 //
+const noteTitleInput = document.getElementById("noteTitleInput");
+const categorySelect = document.getElementById("categorySelect");
+const noteTextInput = document.getElementById("noteTextInput");
+const saveNoteBtn = document.getElementById("saveNoteBtn");
+const clearFormBtn = document.getElementById("clearFormBtn");
+const searchInput = document.getElementById("searchInput");
+const showAllBtn = document.getElementById("showAllBtn");
+const showPinnedBtn = document.getElementById("showPinnedBtn ");
+const clearAllBtn = document.getElementById("clearAllBtn");
+const pinnedNotesChip = document.getElementById("pinnedNotesChip");
+const categorySummaryChip = document.getElementById("categorySummaryChip");
+const noteList = document.getElementById("noteList");
+
 // 2. Use document.getElementById("...") for each one.
 
 // 🧠 STEP 2 — STATE + STORAGE KEY
 //
 // 1. Create a const named STORAGE_KEY and set it to:
 //      "study_note_saver_notes"
+
+const STORAGE_KEY = "study_note_saver_notes";
+
 //
 // 2. Create a let array named notes and set it to an empty array [].
 //    This will hold all note objects in memory.
-//
+
+let notes = [];
+let showPinnedOnly = false;
+let editingNoteId = null;
 // 3. Create a let boolean named showPinnedOnly and set it to false.
 // 4. Create a let variable named editingNoteId and set it to null.
 //    - null means "we are creating a new note"
@@ -58,10 +77,35 @@
 //          - If parsing works and the result is an array, assign it to notes.
 //          - If something goes wrong, log an error in console and set notes = [].
 //
+
+function loadNotesFromStorage() {
+  const raw = localStorage.getItem(STORAGE_KEY);
+  if (!raw) {
+    notes = [];
+    return;
+  }
+  try {
+    const parsed = JSON.parse(raw);
+    if (Array.isArray(parsed)) {
+      notes = parsed;
+    } else {
+      notes = [];
+    }
+  } catch (error) {
+    console.error("unsuccsessful parsing", error);
+    notes = [];
+  }
+}
+
 // 2. Define a function named saveNotesToStorage (no parameters).
 //    Inside:
 //      - Convert notes into a JSON string using JSON.stringify(notes).
 //      - Save it using localStorage.setItem(STORAGE_KEY, jsonString).
+
+function saveNotesToStorage() {
+  const jsonString = JSON.stringify(notes);
+  localStorage.setItem(STORAGE_KEY, jsonString);
+}
 
 // 🧠 STEP 4 — NOTE OBJECT & VALIDATION
 //
@@ -77,6 +121,19 @@
 //          pinned: false,
 //          createdAt: new Date().toISOString()
 //      - Return this object.
+
+function createNoteObject(title, category, text) {
+  const noteObject = Date.now();
+  return {
+    id: noteObject,
+    title: title,
+    category: category,
+    text: text,
+    pinned: false,
+    createdAt: new Date().toISOSring(),
+  };
+}
+
 //
 // 2. Define a function named validateNoteInputs with 2 parameters:
 //      title, text
@@ -85,6 +142,16 @@
 //      - If title.trim() === "", return "Please enter a title."
 //      - Else if text.trim() === "", return "Please write some text for your note."
 //      - Otherwise, return "" (empty string).
+
+function validateNoteInputs(title, text) {
+  if (title.trim() === "") {
+    return "Please enter a title.";
+  } else if (text.trim() === "") {
+    return "Please write some text for your note.";
+  } else {
+    return "";
+  }
+}
 
 // 🧠 STEP 5 — SAVE CURRENT NOTE
 //
@@ -95,6 +162,40 @@
 //        const title = noteTitleInput.value;
 //        const category = categorySelect.value;
 //        const text = noteTextInput.value;
+
+function saveCurrentNote() {
+  const title = noteTitleInput.value;
+  const category = categorySelect.value;
+  const text = noteTextInput.value;
+
+  const alertMessage = validateNoteInputs(title, text);
+  if (alertMessage !== "") {
+    alert(alertMessage);
+    return;
+  }
+
+  if ((editingNoteId = null)) {
+    const createNewNoteObject = createNoteObject(title, category, text);
+    notes.push(createNewNoteObject);
+  } else {
+    notes = notes.map((note) => {
+      if (note.id === editingNoteId) {
+        return {
+          ...note,
+          title: title,
+          category: category,
+          text: text,
+        };
+      }
+
+      return note;
+    });
+  }
+  saveNotesToStorage();
+  clearFormBtn();
+  renderNoteList();
+}
+
 //
 //    - Call validateNoteInputs(title, text) and store the result.
 //    - If the result is NOT an empty string:
@@ -124,11 +225,33 @@
 //        • Otherwise return note unchanged.
 //    - Assign the result back into notes.
 //    - Call saveNotesToStorage() and renderNoteList().
+
+function togglePinned(noteId) {
+  notes = notes.map((note) => {
+    if (note.id === noteId) {
+      return {
+        ...note,
+        pinned: !note.pinned,
+      };
+    }
+    return note;
+  });
+
+  saveNotesToStorage();
+  renderNoteList();
+}
+
+function deleteNote(noteId) {
+  const confirmDelete = confirm("Delete this note permanently?");
+  if (!confirmDelete) {
+    return;
+  }
+}
 //
 // 2. Define a function named deleteNote with 1 parameter: noteId.
 //    - Ask the user to confirm using confirm("Delete this note permanently?").
 //    - If they cancel (result === false), just return.
-//    - If they confirm:
+//    - If they confirm: /// LEFT OFF
 //        • Use .filter() on notes to keep only notes whose id !== noteId.
 //        • Assign the result back into notes.
 //        • Call saveNotesToStorage() and renderNoteList().

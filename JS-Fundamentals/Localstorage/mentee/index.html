@@ -56,8 +56,8 @@
           
           a) Add an <h2> with text: "Add / Edit Note"
           -->
-          
-          <!-- 
+
+    <!-- 
             STEP 5 — Title input
             
             Inside the LEFT card:
@@ -70,8 +70,7 @@
                 • id="noteTitleInput"
                 • placeholder="e.g. Array methods summary, DOM tips..."
                 -->
-                
-                
+
     <!-- 
       STEP 6 — Category select
 
@@ -85,41 +84,6 @@
            • value="css"        → text: "CSS"
            • value="mindset"    → text: "Mindset"
     -->
-
-<main class="app">
-  <h1>🧠 Study Note Saver</h1>
-  <p class="subtitle">
-    Practice localStorage while saving your favorite study notes in the
-    browser
-  </p>
-  <section class="layout">
-    <section>
-      <h2>Add /Edit Note</h2>
-      <div class="field">
-        <span>Title</span>
-        <input type="text" id="noteTitleInput" placeholder="e.g. Array methods summary, DOM tips..."></input>
-      </div>
-      <div class="field">
-        <span>Category</span>
-        <select id="categorySelect">
-          <option value ="javascript">JavaScript</option>
-          <option value ="html">html</option>
-          <option value ="css">css</option>
-          <option value ="mindset">mindset</option>
-        </select>
-      </div>
-      <div class="feild">
-        <span>Note text</span>
-        <textarea id="noteTextInput" placeholder="Write a short note you want to remember..."></textarea>
-      </div>
-      <div class="button-row">
-        <button id="saveNoteBtn">Save Note</button>
-        <button class="button-secondary" id="clearFormBtn">Clear Form</button>
-      </div>
-      
-    </section>
-  </section>
-</main>
 
     <!-- 
       STEP 7 — Note textarea
@@ -252,5 +216,101 @@
 
       
     -->
+
+    <main class="app">
+      <h1>🧠 Study Note Saver</h1>
+      <p class="subtitle">
+        Practice localStorage while saving your favorite study notes in the
+        browser.
+      </p>
+
+      <section class="layout">
+        <!-- Left: form + controls -->
+        <section class="card">
+          <h2>Add / Edit Note</h2>
+
+          <div class="field">
+            <span>Title</span>
+            <input
+              type="text"
+              id="noteTitleInput"
+              placeholder="e.g. Array methods summary, DOM tips..."
+            />
+          </div>
+
+          <div class="field">
+            <span>Category</span>
+            <select id="categorySelect">
+              <option value="javascript">JavaScript</option>
+              <option value="html">HTML</option>
+              <option value="css">CSS</option>
+              <option value="mindset">Mindset</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <span>Note text</span>
+            <textarea
+              id="noteTextInput"
+              placeholder="Write a short note you want to remember..."
+            ></textarea>
+          </div>
+
+          <div class="button-row">
+            <button id="saveNoteBtn">Save Note</button>
+            <button id="clearFormBtn" class="button-secondary">
+              Clear Form
+            </button>
+          </div>
+
+          <h2 style="margin-top: 20px">View Options</h2>
+          <div class="field">
+            <span>Search notes</span>
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Search by title or text..."
+            />
+          </div>
+
+          <div class="button-row">
+            <button id="showAllBtn" class="button-secondary active">All</button>
+            <button id="showPinnedBtn" class="button-secondary">
+              Pinned only
+            </button>
+          </div>
+
+          <div class="button-row" style="margin-top: 16px">
+            <button id="clearAllBtn" class="button-secondary danger">
+              Clear All Saved Notes
+            </button>
+          </div>
+        </section>
+
+        <!-- Right: stats + note list -->
+        <section class="card">
+          <h2>Saved Notes (localStorage)</h2>
+
+          <div class="stats-row">
+            <span class="stat-chip" id="totalNotesChip">Total notes: 0</span>
+            <span class="stat-chip" id="pinnedNotesChip">Pinned: 0</span>
+          </div>
+
+          <div class="stats-row">
+            <span class="stat-chip" id="categorySummaryChip">
+              Categories: JS 0 • HTML 0 • CSS 0 • Mindset 0
+            </span>
+          </div>
+
+          <ul id="noteList" class="note-list">
+            <li class="empty-state" id="emptyState">
+              No notes yet. Add your first study note on the left ✨
+            </li>
+          </ul>
+        </section>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
   </body>
 </html>

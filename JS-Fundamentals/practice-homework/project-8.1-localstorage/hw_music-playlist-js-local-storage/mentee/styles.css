@@ -1,0 +1,162 @@
+/* 🧱 BODY: Base styles for background and font */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Clean, modern sans-serif font */
+  margin: 0; /* Removes default browser spacing around the page */
+  padding: 0; /* Removes default padding inside the body */
+  background: #f4f4f8; /* Soft light gray-blue background for a calm aesthetic */
+  color: #222; /* Dark gray text color for readability */
+  transition: background 0.3s ease,
+    /* Smooth background color change over 0.3s */ color 0.3s ease; /* Smooth text color change when switching themes */
+}
+
+/* 🌑 DARK MODE: Styles applied when body has class "dark" */
+body.dark {
+  background-color: #1e1e2e; /* Deep slate for a dark, mysterious look */
+  color: #f0f0f0; /* Soft white text for contrast and readability */
+}
+
+/* 📦 CONTAINER: Main wrapper to center all content */
+.container {
+  max-width: 700px; /* Prevents the content from stretching too wide on large screens */
+  margin: auto; /* Centers the container horizontally */
+  padding: 2rem; /* Adds space around the inside of the container */
+}
+
+/* 🎵 HEADING: Top <h1> title */
+h1 {
+  font-size: 2rem; /* Large, readable title size */
+  margin-bottom: 1rem; /* Space below the title */
+  text-align: center; /* Center the title horizontally */
+}
+
+/* 🌙 TOGGLE BUTTON: Light/Dark Mode */
+#toggleModeBtn {
+  display: block; /* Makes button a block element to center it */
+  margin: 0 auto 2rem auto; /* Centers the button and adds space below */
+  padding: 0.5rem 1rem; /* Inner space: top/bottom 0.5rem, left/right 1rem */
+  background-color: #333; /* Dark background for contrast */
+  color: #fff; /* White text for readability */
+  border: none; /* No border for a clean look */
+  border-radius: 6px; /* Rounded corners for a modern feel */
+  cursor: pointer; /* Pointer cursor when hovering */
+}
+
+/* ✨ TOGGLE BUTTON (Dark Mode) */
+body.dark #toggleModeBtn {
+  background-color: #eee; /* Light background to contrast with dark theme */
+  color: #111; /* Dark text on light background */
+}
+
+/* 📝 FORM: Song input layout */
+form {
+  display: flex; /* Stack child elements vertically */
+  flex-direction: column;
+  gap: 1rem; /* Space between form elements */
+  margin-bottom: 2rem; /* Space below the form before the playlist */
+}
+
+form label {
+  font-weight: bold; /* Make labels stand out */
+}
+
+form input,
+form select {
+  padding: 0.5rem; /* Inner padding for better spacing inside the fields */
+  border: 1px solid #ccc; /* Light gray border for visibility */
+  border-radius: 4px; /* Slight rounding for softer UI feel */
+}
+
+form button {
+  background-color: #0077cc; /* Bright blue background */
+  color: #fff; /* White text for contrast */
+  border: none; /* No border for cleaner look */
+  padding: 0.75rem; /* Larger padding for button comfort */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor for interactivity */
+}
+
+form button:hover {
+  background-color: #005fa3; /* Slightly darker blue on hover for feedback */
+}
+
+/* 🎛️ FILTER & SHUFFLE CONTROLS */
+#filterMood,
+#shuffleBtn {
+  margin-top: 1rem; /* Space above */
+  margin-bottom: 1.5rem; /* Space below */
+  padding: 0.5rem; /* Inner spacing */
+  font-size: 1rem; /* Comfortable text size */
+}
+
+/* 🔀 SHUFFLE BUTTON STYLING */
+#shuffleBtn {
+  background-color: #222; /* Deep gray for mood */
+  color: white; /* White text for visibility */
+  border: none; /* No border */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Indicates it can be clicked */
+}
+
+#shuffleBtn:hover {
+  background-color: #444; /* Lighter dark gray when hovered */
+}
+
+/* 🎵 PLAYLIST SONG CARD STYLES */
+.song-card {
+  background-color: #ffffff; /* White background to stand out from page */
+  border: 1px solid #ddd; /* Light border around the card */
+  border-radius: 8px; /* Rounded edges for visual appeal */
+  padding: 1rem; /* Inner spacing for text content */
+  margin-bottom: 1rem; /* Space between cards */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
+}
+
+/* 🖤 DARK MODE: Song card appearance */
+body.dark .song-card {
+  background-color: #2e2e3f; /* Dark background */
+  border-color: #444; /* Darker border */
+}
+
+/* ❌ DELETE BUTTON INSIDE SONG CARD */
+.delete-btn {
+  margin-top: 0.5rem; /* Space above the button */
+  padding: 0.4rem 0.75rem; /* Comfortable padding */
+  background-color: crimson; /* Strong red to signal deletion */
+  color: white; /* White text for contrast */
+  border: none; /* No outline */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Hand icon when hovered */
+}
+
+.delete-btn:hover {
+  background-color: darkred; /* Darker red for hover effect */
+}
+
+/* 🔗 LINK STYLING */
+a {
+  text-decoration: none; /* Remove underline for cleaner look */
+  color: #0077cc; /* Same blue as Add button */
+}
+
+a:hover {
+  text-decoration: underline; /* Show underline on hover for feedback */
+}
+
+/* 📱 RESPONSIVE: Adjust for smaller screens */
+@media (max-width: 500px) {
+  .container {
+    padding: 1rem; /* Reduce padding for small screens */
+  }
+
+  h1 {
+    font-size: 1.5rem; /* Slightly smaller heading */
+  }
+
+  form {
+    gap: 0.75rem; /* Less spacing between fields */
+  }
+
+  .song-card {
+    padding: 0.75rem; /* Slightly tighter spacing in cards */
+  }
+}
