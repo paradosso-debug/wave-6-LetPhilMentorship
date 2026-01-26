@@ -8,7 +8,7 @@
 // - DOM selection & events
 //
 
-// 🧠 STEP 1 — SELECT DOM ELEMENTS
+//  STEP 1 — SELECT DOM ELEMENTS
 //
 // 1. Create const variables for:
 //
@@ -45,7 +45,7 @@ const noteList = document.getElementById("noteList");
 
 // 2. Use document.getElementById("...") for each one.
 
-// 🧠 STEP 2 — STATE + STORAGE KEY
+//  STEP 2 — STATE + STORAGE KEY
 //
 // 1. Create a const named STORAGE_KEY and set it to:
 //      "study_note_saver_notes"
@@ -64,7 +64,7 @@ let editingNoteId = null;
 //    - null means "we are creating a new note"
 //    - a number id means "we are editing an existing note"
 
-// 🧠 STEP 3 — LOCALSTORAGE HELPERS
+//  STEP 3 — LOCALSTORAGE HELPERS
 //
 // 1. Define a function named loadNotesFromStorage (no parameters).
 //    Inside:
@@ -107,7 +107,7 @@ function saveNotesToStorage() {
   localStorage.setItem(STORAGE_KEY, jsonString);
 }
 
-// 🧠 STEP 4 — NOTE OBJECT & VALIDATION
+//  STEP 4 — NOTE OBJECT & VALIDATION
 //
 // 1. Define a function named createNoteObject with 3 parameters:
 //      title, category, text
@@ -153,7 +153,7 @@ function validateNoteInputs(title, text) {
   }
 }
 
-// 🧠 STEP 5 — SAVE CURRENT NOTE
+//  STEP 5 — SAVE CURRENT NOTE
 //
 // 1. Define a function named saveCurrentNote (no parameters).
 // 2. Inside:
@@ -216,7 +216,7 @@ function saveCurrentNote() {
 //    - Call clearForm() (you will create this function).
 //    - Call renderNoteList().
 
-// 🧠 STEP 6 — PIN / DELETE / EDIT
+//  STEP 6 — PIN / DELETE / EDIT
 //
 // 1. Define a function named togglePinned with 1 parameter: noteId.
 //    - Use .map() on notes:
@@ -246,7 +246,11 @@ function deleteNote(noteId) {
   if (!confirmDelete) {
     return;
   }
+  notes = notes.filter((note) => note.id !== noteId);
+  saveNotesToStorage();
+  renderNoteList();
 }
+
 //
 // 2. Define a function named deleteNote with 1 parameter: noteId.
 //    - Ask the user to confirm using confirm("Delete this note permanently?").
@@ -266,7 +270,20 @@ function deleteNote(noteId) {
 //        noteTextInput.value = note.text;
 //    - Optionally call noteTitleInput.focus().
 
-// 🧠 STEP 7 — CLEAR FORM & CLEAR ALL
+function startEditing(noteId) {
+  const note = notes.find((note) => note.id === noteId);
+  if (!note) {
+    return;
+  } else {
+    editingNoteId = noteId;
+    noteTitleInput.value = note.title;
+    categorySelect.value = note.category;
+    noteTextInput.value = note.text;
+    noteTitleInput.focus();
+  }
+}
+
+//  STEP 7 — CLEAR FORM & CLEAR ALL
 //
 // 1. Define a function named clearForm (no parameters).
 //    - Set editingNoteId = null.
@@ -275,6 +292,15 @@ function deleteNote(noteId) {
 //        noteTextInput.value = ""
 //        categorySelect.value = "javascript"   (or any default)
 //    - Optionally focus the title input.
+
+function clearForm() {
+  editingNoteId = null;
+
+  noteTitleInput.value = "";
+  noteTextInput.value = "";
+  categorySelect.value = "javascript";
+}
+
 //
 // 2. Define a function named clearAllNotes (no parameters).
 //    - Ask for confirmation with confirm("This will remove all saved notes from localStorage. Continue?").
@@ -284,7 +310,18 @@ function deleteNote(noteId) {
 //        • Call saveNotesToStorage().
 //        • Call renderNoteList().
 
-// 🧠 STEP 8 — STATS
+function clearAllNotes() {
+  const clearAll = confirm(
+    "This will remove all saved notes from localStorage. Continue?",
+  );
+
+  if (!clearAll) return;
+  notes = [];
+  saveNotesToStorage();
+  renderNoteList();
+}
+
+//  STEP 8 — STATS
 //
 // 1. Define a function named calculateStats with 1 parameter: visibleNotes.
 //    - total = visibleNotes.length
@@ -305,7 +342,27 @@ function deleteNote(noteId) {
 //        categorySummaryChip.textContent =
 //          "Categories: JS X • HTML Y • CSS Z • Mindset W"
 
-// 🧠 STEP 9 — FILTER VISIBLE NOTES + RENDER LIST
+function calculateStats(visibleNotes) {
+  const total = visibleNotes.length;
+  const pinnedCount = visibleNotes.filter((note) => {
+    note.pinned === true;
+  }).length;
+
+  const categoryCounts = visibleNotes.reduce(
+    (acc, note) => {
+      if (note.category === "javascript") acc.js += 1;
+      else if (note.category === "html") acc.html += 1;
+      else if (note.category === "css") acc.css += 1;
+      else acc.mindset += 1;
+      return acc;
+    },
+    { js: 0, html: 0, css: 0, mindset: 0 },
+  );
+
+  return { total, pinnedCount, categoryCounts };
+}
+
+//  STEP 9 — FILTER VISIBLE NOTES + RENDER LIST
 //
 // 1. Define a function named getVisibleNotes (no parameters).
 //    - Read searchInput.value, make it lowercased and trimmed.
@@ -354,7 +411,7 @@ function deleteNote(noteId) {
 //
 //    - At the very end, call renderStats(visibleNotes).
 
-// 🧠 STEP 10 — VIEW TOGGLE FUNCTION
+//  STEP 10 — VIEW TOGGLE FUNCTION
 //
 // 1. Define a function named setShowPinnedOnly with 1 parameter: value.
 //    - Set showPinnedOnly = value.
@@ -363,7 +420,7 @@ function deleteNote(noteId) {
 //      Else → add "active" class only to showAllBtn.
 //    - Call renderNoteList().
 
-// 🧠 STEP 11 — EVENT LISTENERS
+//  STEP 11 — EVENT LISTENERS
 //
 // 1. For saveNoteBtn, add a "click" event listener that calls saveCurrentNote.
 // 2. For clearFormBtn, add a "click" listener that calls clearForm.
@@ -375,13 +432,9 @@ function deleteNote(noteId) {
 //      - If (event.ctrlKey || event.metaKey) AND event.key === "Enter",
 //        call saveCurrentNote().
 
-// 🧠 STEP 12 — INITIALIZE
+//  STEP 12 — INITIALIZE
 //
 // At the bottom of this file:
 //
 // 1. Call loadNotesFromStorage() so notes are loaded from localStorage.
 // 2. Call renderNoteList() so the UI shows the current notes (or empty state).
-
-// 🧪 TIP:
-// Use console.log() to inspect notes, visibleNotes, and localStorage values.
-// Work one small piece at a time: storage → create note → render → events.
