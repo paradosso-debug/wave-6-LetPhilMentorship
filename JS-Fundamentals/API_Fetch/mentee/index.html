@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>API Mini Tasks</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- STEP 1 — Create the main page container -->
+    <!-- Add a <main> element with a class of "page" -->
+
+    <!-- STEP 2 — Create the main card -->
+    <!-- Inside <main>, add a <section> -->
+    <!-- Give it a class of "card" -->
+
+    <!-- STEP 3 — Add the card title -->
+    <!-- Add an <h1> element -->
+    <!-- class: "card-title" -->
+    <!-- Text: "API Mini Lab" -->
+
+    <!-- STEP 4 — Add the card subtitle -->
+    <!-- Add a <p> element -->
+    <!-- class: "card-subtitle" -->
+    <!-- Mention using fetch and public APIs -->
+
+    <!-- STEP 5 — Create the first widget (Random Advice) -->
+    <!-- Add a <section> with class "widget" -->
+
+    <!-- STEP 6 — Add the widget title -->
+    <!-- Add an <h2> -->
+    <!-- Text: "1. Random Advice" -->
+
+    <!-- STEP 7 — Add the advice text display -->
+    <!-- Add a <p> element -->
+    <!-- class: "widget-text" -->
+    <!-- id: "adviceText" -->
+
+    <!-- STEP 8 — Add the advice button -->
+    <!-- Add a <button> -->
+    <!-- id: "adviceBtn" -->
+    <!-- class: "btn primary" -->
+    <!-- Text: "Get Advice" -->
+
+    <!-- STEP 9 — Create the second widget (Random Cat Fact) -->
+    <!-- Add another <section> with class "widget" -->
+
+    <!-- STEP 10 — Add the widget title -->
+    <!-- Add an <h2> -->
+    <!-- Text: "2. Random Cat Fact" -->
+
+    <!-- STEP 11 — Add the cat fact text display -->
+    <!-- Add a <p> element -->
+    <!-- class: "widget-text" -->
+    <!-- id: "catFactText" -->
+
+    <!-- STEP 12 — Add the cat fact button -->
+    <!-- Add a <button> -->
+    <!-- id: "catFactBtn" -->
+    <!-- class: "btn secondary" -->
+    <!-- Text: "Get Cat Fact" -->
+
+    <!-- STEP 13 — Create the third widget (Random Space Photo) -->
+    <!-- Add another <section> with class "widget" -->
+
+    <!-- STEP 14 — Add the widget title -->
+    <!-- Add an <h2> -->
+    <!-- Text: "3. Random Space Photo" -->
+
+    <!-- STEP 15 — Add the space activity text display -->
+    <!-- Add a <p> element -->
+    <!-- class: "widget-text" -->
+    <!-- id: "activityText" -->
+
+    <!-- STEP 16 — Add the space photo button -->
+    <!-- Add a <button> -->
+    <!-- id: "activityBtn" -->
+    <!-- class: "btn ghost" -->
+    <!-- Text: "Get Space Photo" -->
+
+    <!-- STEP 17 — Add a hint paragraph -->
+    <!-- Add a <p> element -->
+    <!-- class: "hint" -->
+    <!-- Mention Open script.js and follow each STEP. Use DevTools → Network to see the requests. -->
+
+    <!-- STEP 18 — Link JavaScript -->
+    <!-- Add a <script> tag at the bottom of the body -->
+    <main class="page">
+      <section class="card">
+        <h1 class="card-title">API Mini Lab</h1>
+        <p class="card-subtitle">
+          Use <code>fetch</code> to call simple public APIs and show the results
+          on the page.
+        </p>
+
+        <section class="widget">
+          <h2>1. Random Advice</h2>
+          <p class="widget-text" id="adviceText">
+            Click the button to get a piece of advice from an API.
+          </p>
+          <button id="adviceBtn" class="btn primary">Get Advice</button>
+        </section>
+
+        <section class="widget">
+          <h2>2. Random Cat Fact</h2>
+          <p class="widget-text" id="catFactText">
+            Click the button to get a cat fact from an API.
+          </p>
+          <button id="catFactBtn" class="btn secondary">Get Cat Fact</button>
+        </section>
+
+        <section class="widget">
+          <h2>3. Random Space Photo</h2>
+          <p class="widget-text" id="activityText">
+            Click the button to get the daily NASA space image.
+          </p>
+          <button id="activityBtn" class="btn ghost">Get Space Photo</button>
+        </section>
+
+        <p class="hint">
+          Open <code>script.js</code> and follow each STEP. Use DevTools →
+          Network to see the requests.
+        </p>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>

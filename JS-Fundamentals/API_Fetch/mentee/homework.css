@@ -1,0 +1,114 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: linear-gradient(135deg, #0f172a, #22c55e, #0ea5e9);
+  color: #ecfdf5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.page {
+  max-width: 920px;
+  width: 100%;
+}
+
+.card {
+  background: rgba(15, 23, 42, 0.96);
+  border-radius: 1.9rem;
+  padding: 2.6rem 2.4rem;
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(34, 197, 94, 0.45);
+  border: 1px solid rgba(14, 165, 233, 0.9);
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 0.6rem;
+}
+
+.subtitle {
+  margin-bottom: 1.4rem;
+  color: #bae6fd;
+  line-height: 1.7;
+}
+
+.field-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+  margin-bottom: 1.3rem;
+}
+
+.field-row label {
+  font-size: 0.9rem;
+  color: #a7f3d0;
+}
+
+.field-row input {
+  flex: 1 1 220px;
+  padding: 0.5rem 0.7rem;
+  border-radius: 0.9rem;
+  border: 1px solid rgba(148, 163, 184, 0.9);
+  background: rgba(15, 23, 42, 0.9);
+  color: #ecfdf5;
+}
+
+.field-row input:focus {
+  outline: none;
+  border-color: rgba(14, 165, 233, 0.95);
+  box-shadow: 0 0 0 1px rgba(14, 165, 233, 0.85);
+}
+
+.btn {
+  border-radius: 999px;
+  padding: 0.5rem 1.2rem;
+  font-size: 0.9rem;
+  border: 1px solid rgba(14, 165, 233, 0.95);
+  background: rgba(14, 165, 233, 0.95);
+  color: #e0f2fe;
+  cursor: pointer;
+  transition: transform 0.08s ease, box-shadow 0.08s ease, background 0.12s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.7);
+}
+
+.info-block {
+  margin-bottom: 1rem;
+  padding: 1rem 1.1rem;
+  border-radius: 1.2rem;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(34, 197, 94, 0.4);
+}
+
+.info-block h2 {
+  margin-bottom: 0.4rem;
+}
+
+.info-block p {
+  margin-bottom: 0.25rem;
+}
+
+.status-message {
+  font-size: 0.95rem;
+  margin-bottom: 0.9rem;
+  color: #bae6fd;
+}
+
+.hint {
+  font-size: 0.95rem;
+  color: #a7f3d0;
+  border-top: 1px dashed rgba(34, 197, 94, 0.7);
+  padding-top: 1rem;
+}
