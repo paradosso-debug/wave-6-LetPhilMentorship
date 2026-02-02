@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -85,6 +85,44 @@
 
     <!-- STEP 18 — Link JavaScript -->
     <!-- Add a <script> tag at the bottom of the body -->
-    <!-- src="script.js" -->
+    <main class="page">
+      <section class="card">
+        <h1 class="card-title">Wave 7 – Axios API Mini Lab</h1>
+        <p class="card-subtitle">
+          Use <code>axios</code> (via CDN) + <code>async/await</code> to call
+          simple public APIs and show the results.
+        </p>
+
+        <section class="widget">
+          <h2>1. Random Advice</h2>
+          <p class="widget-text" id="adviceText">
+            Click the button to get a piece of advice.
+          </p>
+          <button id="adviceBtn" class="btn primary">Get Advice</button>
+        </section>
+
+        <section class="widget">
+          <h2>2. Random Cat Fact</h2>
+          <p class="widget-text" id="catFactText">
+            Click the button to get a random cat fact.
+          </p>
+          <button id="catFactBtn" class="btn secondary">Get Cat Fact</button>
+        </section>
+
+        <section class="widget">
+          <h2>3. Random Space Photo (NASA APOD)</h2>
+          <div class="widget-text" id="spaceDisplay">
+            Click the button to see today's NASA space image.
+          </div>
+          <button id="spaceBtn" class="btn ghost">Get Space Photo</button>
+        </section>
+
+        <p class="hint">
+          Open <code>script.js</code> and follow each STEP. Use DevTools →
+          Network to see the Axios requests.
+        </p>
+      </section>
+    </main>
+    <script src="script.js"></script>
   </body>
 </html>

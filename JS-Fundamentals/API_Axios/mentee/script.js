@@ -26,6 +26,28 @@
 //         - spaceBtn (id "spaceBtn")
 //         - spaceDisplay (id "spaceDisplay")
 
+const adviceBtn = document.getElementById("adviceBtn");
+const adviceText = document.getElementById("adviceText");
+const catFactBtn = document.getElementById("catFactBtn");
+const catFactText = document.getElementById("catFactText");
+const spaceBtn = document.getElementById("spaceBtn");
+const spaceDisplay = document.getElementById("spaceDisplay");
+
+adviceBtn.addEventListener("click", async () => {
+  adviceText.textContent = "Loading advice...";
+  try {
+    const response = await axios.get("https://api.adviceslip.com/advice");
+
+    console.log(response.data);
+    const apiResponse = response.data.slip.advice;
+    adviceText.textContent = apiResponse;
+    console.log(apiResponse);
+  } catch (error) {
+    console.error(error);
+    adviceText.textContent = "Error baby";
+  }
+});
+
 // ==============================================
 // TASK 1 – RANDOM ADVICE (AXIOS + ASYNC/AWAIT)
 // ==============================================
@@ -46,6 +68,19 @@
 //         - Inside catch:
 //             * Log the error to the console.
 //             * Set adviceText.textContent to "Could not load advice. Try again.".
+
+catFactBtn.addEventListener("click", async () => {
+  catFactText.textContent = "Loading cat fact...";
+  try {
+    const reponse = await axios.get("https://catfact.ninja/fact");
+    const catFactResponse = reponse.data.fact;
+    catFactText.textContent = catFactResponse;
+    console.log(reponse.data.fact);
+  } catch (error) {
+    console.log(error);
+    catFactText.textContent = "Could not load cat fact. Try again.";
+  }
+});
 
 // ==============================================
 // TASK 2 – RANDOM CAT FACT (AXIOS + ASYNC/AWAIT)
@@ -107,3 +142,26 @@
 //             * Log the error.
 //             * Set spaceDisplay.textContent to:
 //               "Could not load space photo. Try again later."
+
+spaceBtn.addEventListener("click", async () => {
+  spaceDisplay.textContent = "Loading space photo...";
+  try {
+    const response = await axios.get(
+      "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&count=1",
+    );
+    const data = response.data[0];
+    console.log(data);
+    if (data.media_type === "image") {
+      spaceDisplay.innerHTML = `<h3>${data.title}</h3> 
+      <img src="${data.url}" alt="${data.title}" style="width:100%;border-radius:1rem;margin-top:0.6rem;"/> 
+      <p>${data.explanation}</p>`;
+    } else {
+      spaceDisplay.innerHTML = `<h3>${data.title}</h3>
+      <p>${data.explanation}</p>
+      <a href="${data.url}" target="blank" style="color:#a7f3d0;">Link</a>`;
+    }
+  } catch (error) {
+    console.log(error);
+    spaceDisplay.textContent = "Could not load space photo. Try again later";
+  }
+});
