@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Props & Destructuring</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- STEP 1 — Create the main page container -->
+    <!-- Add a <main> element with a class of "page" -->
+
+    <!-- STEP 2 — Create the main card -->
+    <!-- Inside <main>, add a <section> -->
+    <!-- Give it a class of "card" -->
+
+    <!-- STEP 3 — Add the card title -->
+    <!-- Add an <h1> element -->
+    <!-- class: "card-title" -->
+    <!-- Text: "Props & Destructuring Lab" -->
+
+    <!-- STEP 4 — Add the card subtitle -->
+    <!-- Add a <p> element -->
+    <!-- class: "card-subtitle" -->
+    <!-- Mention props and destructuring -->
+
+    <!-- STEP 5 — Create the first widget (Welcome Message) -->
+    <!-- Add a <section> with class "widget" -->
+
+    <!-- STEP 6 — Add the widget title -->
+    <!-- Add an <h2> -->
+    <!-- Text: "1. Welcome Message (props basics)" -->
+
+    <!-- STEP 7 — Add the message display -->
+    <!-- Add a <p> element -->
+    <!-- class: "widget-text" -->
+    <!-- id: "messageDisplay" -->
+
+    <!-- STEP 8 — Add the welcome message button -->
+    <!-- Add a <button> -->
+    <!-- id: "showMessageBtn" -->
+    <!-- class: "btn primary" -->
+    <!-- Text: "Show Welcome Message" -->
+
+    <!-- STEP 9 — Create the second widget (Character Card Generator) -->
+    <!-- Add another <section> with class "widget" -->
+
+    <!-- STEP 10 — Add the widget title -->
+    <!-- Add an <h2> -->
+    <!-- Text: "2. Character Card Generator" -->
+
+    <!-- STEP 11 — Add the widget description -->
+    <!-- Add a <p> element -->
+    <!-- class: "widget-text" -->
+    <!-- Mention props object and destructuring -->
+
+    <!-- STEP 12 — Add the generate characters button -->
+    <!-- Add a <button> -->
+    <!-- id: "generateCharsBtn" -->
+    <!-- class: "btn secondary" -->
+    <!-- Text: "Generate Characters" -->
+
+    <!-- STEP 13 — Add the character container -->
+    <!-- Add a <div> element -->
+    <!-- id: "characterContainer" -->
+    <!-- class: "char-container" -->
+    <!-- Cards will be inserted here -->
+
+    <!-- STEP 14 — Add a hint paragraph -->
+    <!-- Add a <p> element -->
+    <!-- class: "hint" -->
+    <!-- Mention script.js -->
+
+    <!-- STEP 15 — Link JavaScript -->
+    <!-- Add a <script> tag at the bottom of the body -->
+    <!-- src="script.js" -->
+
+    <main class="page">
+      <section class="card">
+        <h1 class="card-title">Props & Destructuring Lab</h1>
+        <p class="card-subtitle">
+          Treat function parameters like <strong>props</strong>, and use
+          <strong>destructuring</strong> to unpack objects.
+        </p>
+
+        <section class="widget">
+          <h2>1. Welcome Message (props basics)</h2>
+          <p class="widget-text" id="messageDisplay">
+            Click the button to show a welcome message created by a function.
+          </p>
+          <button id="showMessageBtn" class="btn primary">
+            Show Welcome Message
+          </button>
+        </section>
+
+        <section class="widget">
+          <h2>2. Character Card Generator</h2>
+          <p class="widget-text">
+            We will use a function that receives a character
+            <em>props object</em> and uses
+            <code>{ name, element, power }</code> destructuring.
+          </p>
+          <button id="generateCharsBtn" class="btn secondary">
+            Generate Characters
+          </button>
+          <div id="characterContainer" class="char-container">
+            <!-- Cards will appear here -->
+          </div>
+        </section>
+
+        <p class="hint">
+          Open <code>script.js</code> and follow each STEP to implement the
+          logic.
+        </p>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
